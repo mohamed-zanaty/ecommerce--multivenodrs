@@ -1,0 +1,22 @@
+@extends('layouts.admin')
+@section('content')
+ss
+    adsfadf
+    adfvadv
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    asfa
+@stop
