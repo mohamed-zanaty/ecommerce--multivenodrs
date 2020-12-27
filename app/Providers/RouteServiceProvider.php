@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Route;
+use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 class RouteServiceProvider extends ServiceProvider
 {
@@ -21,9 +22,12 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @var string
      */
-    public const HOME = '/home';
+    public const HOME = '/';
 
     public const ADMIN = '/admin';
+
+    public const VERIFIED = '/verify';
+
 
     /**
      * Define your route model bindings, pattern filters, etc.
@@ -72,9 +76,9 @@ class RouteServiceProvider extends ServiceProvider
 
     protected function mapAdminRoutes()
     {
-        Route::middleware('web')
+        Route::middleware(['web','localeSessionRedirect', 'localizationRedirect', 'localeViewPath'])
             ->namespace($this->namespace . '\Dashboard')
-            ->prefix('admin')
+            ->prefix(LaravelLocalization::setLocale())
             ->group(base_path('routes/admin.php'));
     }
 

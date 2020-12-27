@@ -13,7 +13,7 @@ class AdminLoginRequest extends FormRequest
      */
     public function authorize()
     {
-        return true;
+        return true ;
     }
 
     /**
@@ -24,16 +24,19 @@ class AdminLoginRequest extends FormRequest
     public function rules()
     {
         return [
-            "email" =>'required|email',
-            'password'=>'required'
+            'email' => 'required|email',
+            'password' => 'required'
         ];
     }
+
     public function messages()
     {
         return [
-          'email.required'=>'يجب ادخال البريد الالكتروني',
-          'email.email'=>'يجب ان يكون الحقل ايميل',
-          'password.required'=>'يجب اخال كلمه المرور',
-        ];
+
+            'email.required' => 'يجب الدخال البريد الالكتروني ',
+            'email.email' => 'صيغة البريد الالكتروني غير صحيحة ',
+            'password.required' => 'يجب الدخال كلمة المرور'
+
+            ];
     }
 }
